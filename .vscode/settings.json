@@ -1,0 +1,8 @@
+{
+  "azureFunctions.projectSubpath": "AZ204\\1.ComputeSolutions\\AzureFunctions\\03. Lab - Azure Functions - SQL Database - Get Orders by Id",
+  "azureFunctions.deploySubpath": "AZ204\\1.ComputeSolutions\\AzureFunctions\\03. Lab - Azure Functions - SQL Database - Get Orders by Id/bin/Release/net10.0/publish",
+  "azureFunctions.projectLanguage": "C#",
+  "azureFunctions.projectRuntime": "~4",
+  "debug.internalConsoleOptions": "neverOpen",
+  "azureFunctions.preDeployTask": "publish (functions)"
+}

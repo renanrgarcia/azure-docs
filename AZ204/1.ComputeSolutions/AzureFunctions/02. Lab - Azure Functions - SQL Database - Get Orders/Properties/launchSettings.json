@@ -1,8 +1,8 @@
 {
   "profiles": {
-    "code": {
+    "_02._Lab___Azure_Functions___SQL_Database___Get_Orders": {
       "commandName": "Project",
-      "commandLineArgs": "--port 7291",
+      "commandLineArgs": "--port 7187",
       "launchBrowser": false
     }
   }

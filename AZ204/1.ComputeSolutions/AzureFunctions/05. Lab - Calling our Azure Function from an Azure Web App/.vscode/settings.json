@@ -1,0 +1,5 @@
+{
+    "dotnet.defaultSolution": "webapp.sln",
+    "appService.preDeployTask": "publish-release",
+    "appService.deploySubpath": "webapp/bin/Release/net10.0/publish"
+}
