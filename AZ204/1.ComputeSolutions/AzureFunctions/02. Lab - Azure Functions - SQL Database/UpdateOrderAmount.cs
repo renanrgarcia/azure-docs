@@ -6,30 +6,25 @@ using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Logging;
 
-public class UpdateOrderAmount
+namespace _02._Lab___Azure_Functions___SQL_Database;
+
+public class UpdateOrderAmount(ILogger<UpdateOrderAmount> logger)
 {
-    private readonly ILogger<UpdateOrderAmount> _logger;
-
-    public UpdateOrderAmount(ILogger<UpdateOrderAmount> logger)
-    {
-        _logger = logger;
-    }
-
     private sealed record UpdateAmountRequest(int OrderId, decimal Amount);
+    private static readonly JsonSerializerOptions JsonOptions = new() { PropertyNameCaseInsensitive = true };
 
     [Function("UpdateOrderAmount")]
     public async Task<HttpResponseData> Run(
         [HttpTrigger(AuthorizationLevel.Anonymous, "post")] HttpRequestData req)
     {
-        _logger.LogInformation("Updating order amount...");
+        logger.LogInformation("Updating order amount...");
 
         string? connString = Environment.GetEnvironmentVariable("SqlConnectionString");
 
         UpdateAmountRequest? payload;
-        payload = await JsonSerializer.DeserializeAsync<UpdateAmountRequest>(req.Body,
-                new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
-        
-    const string sql = @"
+        payload = await JsonSerializer.DeserializeAsync<UpdateAmountRequest>(req.Body, JsonOptions);
+
+        const string sql = @"
             UPDATE dbo.CourseOrders
             SET Amount = @Amount
             WHERE OrderId = @OrderId;";
@@ -38,19 +33,19 @@ public class UpdateOrderAmount
         await conn.OpenAsync();
 
         await using var cmd = new SqlCommand(sql, conn);
-        cmd.Parameters.Add("@Amount", SqlDbType.Decimal).Value = payload.Amount;
+        cmd.Parameters.Add("@Amount", SqlDbType.Decimal).Value = payload?.Amount;
         cmd.Parameters["@Amount"].Precision = 10;
         cmd.Parameters["@Amount"].Scale = 2;
 
-        cmd.Parameters.Add("@OrderId", SqlDbType.Int).Value = payload.OrderId;
+        cmd.Parameters.Add("@OrderId", SqlDbType.Int).Value = payload?.OrderId;
 
-         int rows = await cmd.ExecuteNonQueryAsync();
+        int rows = await cmd.ExecuteNonQueryAsync();
         var response = req.CreateResponse(HttpStatusCode.OK);
         await response.WriteAsJsonAsync(new
         {
             message = "Order amount updated",
-            orderId = payload.OrderId,
-            amount = payload.Amount
+            orderId = payload?.OrderId,
+            amount = payload?.Amount
         });
 
         return response;

@@ -6,7 +6,7 @@ using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Logging;
 
-namespace _02._Lab___Azure_Functions___SQL_Database___Get_Orders;
+namespace _02._Lab___Azure_Functions___SQL_Database;
 
 public class GetCourseOrders(ILogger<GetCourseOrders> logger)
 {
@@ -21,7 +21,7 @@ public class GetCourseOrders(ILogger<GetCourseOrders> logger)
         const string query = @"
             SELECT 
                 OrderId, CustomerName, CustomerEmail, CourseName, Amount, OrderDateUtc
-            FROM dbo.Orders
+            FROM dbo.CourseOrders
             ORDER BY OrderDateUtc DESC;";
 
         using var connection = new SqlConnection(connectionString);

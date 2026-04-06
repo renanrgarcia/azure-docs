@@ -6,20 +6,15 @@ using Microsoft.Data.SqlClient;
 using System.Net;
 using System.Web;
 
-public class GetCourseOrderById
+namespace _02._Lab___Azure_Functions___SQL_Database;
+
+public class GetCourseOrderById(ILogger<GetCourseOrderById> logger)
 {
-    private readonly ILogger<GetCourseOrderById> _logger;
-
-    public GetCourseOrderById(ILogger<GetCourseOrderById> logger)
-    {
-        _logger = logger;
-    }
-
-[Function("GetCourseOrderById")]
+    [Function("GetCourseOrderById")]
     public async Task<HttpResponseData> Run(
-        [HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpRequestData req)
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpRequestData req)
     {
-        _logger.LogInformation("Fetching a course order by OrderId...");
+        logger.LogInformation("Fetching a course order by OrderId...");
 
         var query = HttpUtility.ParseQueryString(req.Url.Query);
         string? orderIdRaw = query.Get("orderId");
@@ -40,12 +35,12 @@ public class GetCourseOrderById
 
         await using var reader = await cmd.ExecuteReaderAsync(CommandBehavior.SingleRow);
         if (!await reader.ReadAsync())
-{
-    var notFound = req.CreateResponse(HttpStatusCode.NotFound);
-    await notFound.WriteStringAsync($"No order found for OrderId = {orderIdRaw}");
-    return notFound;
-}
-         var order = new
+        {
+            var notFound = req.CreateResponse(HttpStatusCode.NotFound);
+            await notFound.WriteStringAsync($"No order found for OrderId = {orderIdRaw}");
+            return notFound;
+        }
+        var order = new
         {
             OrderId = reader.GetInt32(0),
             CustomerName = reader.GetString(1),
@@ -60,9 +55,5 @@ public class GetCourseOrderById
         return ok;
 
     }
-    
-    
-     
-
 }
 
