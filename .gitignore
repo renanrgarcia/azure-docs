@@ -1,13 +1,21 @@
-# .gitignore for workspace projects (PHP + .NET + common)
+# Repository-wide ignore rules for docs, .NET, Azure Functions, PHP, and common tooling.
 
 # OS
 .DS_Store
 Thumbs.db
 
-# IDEs
-
+# Editors and IDEs
 .vs/
+.vscode/
 .idea/
+*.suo
+*.user
+*.userosscache
+*.userprefs
+*.sln.docstates
+*.sln.iml
+_ReSharper*/
+*.DotSettings.user
 
 # Node
 node_modules/
@@ -21,26 +29,46 @@ logs/
 tmp/
 temp/
 
-# Visual Studio / Rider / Resharper
-*.suo
-*.user
-*.userosscache
-*.sln.docstates
-_ReSharper*/
-*.DotSettings.user
-
 # .NET build folders and artifacts
 bin/
 obj/
 **/bin/
 **/obj/
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+bld/
+artifacts/
 publish/
 Publish/
 **/Publish/
+TestResults/
+[Tt]est[Rr]esult*/
+coverage/
+*.coverage
+*.coveragexml
+*.trx
 
 # NuGet
 *.nupkg
 project.assets.json
+*.nuget.props
+*.nuget.targets
+**/packages/*
+!**/packages/build/
+
+# Publish and deployment outputs
+*.[Pp]ublish.xml
+*.azurePubxml
+*.publishproj
+*.publishsettings
+PublishScripts/
+
+# Azure Functions local secrets
+local.settings.json
 
 # Build outputs
 *.dll
@@ -65,14 +93,9 @@ vendor/
 composer.phar
 .env
 .env.*
-
-# PHP unit / test
-coverage/
-*.coverage
-coverage.xml
 .phpunit.result.cache
 
-# Misc
+# Archives
 *.zip
 *.tar.gz
 *.7z

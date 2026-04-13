@@ -1,0 +1,15 @@
+// Building the Docker image
+
+docker build -t dockerapp:v1
+
+// Stopping a Docker image
+
+docker stop <container-id>
+
+// Checking the Docker images
+
+docker images
+
+// Running a docker container
+docker run -d --name dockerapp-instance -p 8080:8080 dockerapp:v1
+

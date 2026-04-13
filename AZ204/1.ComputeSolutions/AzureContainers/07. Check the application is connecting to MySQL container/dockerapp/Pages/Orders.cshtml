@@ -1,0 +1,40 @@
+@page
+@model OrdersModel
+@{
+    ViewData["Title"] = "Course Orders";
+}
+
+<h1>Course Orders</h1>
+
+@if (Model.Orders.Count == 0)
+{
+    <p>No orders found.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>OrderId</th>
+                <th>Customer</th>
+                <th>Email</th>
+                <th>Course</th>
+                <th>Amount</th>
+                <th>OrderDateUtc</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var o in Model.Orders)
+        {
+            <tr>
+                <td>@o.OrderId</td>
+                <td>@o.CustomerName</td>
+                <td>@o.CustomerEmail</td>
+                <td>@o.CourseName</td>
+                <td>@o.Amount</td>
+                <td>@o.OrderDateUtc.ToString("u")</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}

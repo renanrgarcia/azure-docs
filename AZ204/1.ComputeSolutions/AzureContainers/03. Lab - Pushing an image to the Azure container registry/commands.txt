@@ -1,0 +1,10 @@
+// Login onto the Docker registry
+
+docker login <registry-server>
+
+// Tag the Docker image
+docker tag dockerapp:v1 regdeveus100.azurecr.io/dockerapp:v1
+
+// Push the Docker image
+
+docker push regdeveus100.azurecr.io/dockerapp:v1

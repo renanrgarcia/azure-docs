@@ -1,0 +1,5 @@
+// Install the Docker engine on the VM
+https://docs.docker.com/engine/install/ubuntu/
+// Run the container
+
+sudo docker run -d --name dockerapp -p 80:8080 regdeveus100.azurecr.io/dockerapp:v1
