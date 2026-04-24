@@ -1,0 +1,11 @@
+// To create a container
+
+azcopy make "https://stdeveus100030.blob.core.windows.net/scripts?{SAS Token}"
+
+// Upload a blob
+
+azcopy copy requests.http "https://stdeveus100030.blob.core.windows.net/scripts/requests.http?{SAS Token}"
+
+// Download a blob
+
+azcopy copy "https://stdeveus100030.blob.core.windows.net/scripts/requests.http?{SAS Token}" "requests.http"

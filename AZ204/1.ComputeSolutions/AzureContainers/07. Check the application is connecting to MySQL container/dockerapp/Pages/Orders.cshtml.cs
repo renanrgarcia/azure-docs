@@ -8,17 +8,17 @@ public class OrdersModel : PageModel
     public async Task OnGetAsync()
     {
         // Read connection string from environment variable (best for containers)
-        var connStr =      
+        var connStr =
             "Server=localhost;Port=3306;Database=cloudxeusdb;User ID=appuser;Password=StrongPassword!123;";
 
         await using var conn = new MySqlConnection(connStr);
         await conn.OpenAsync();
 
         const string sql = @"
-SELECT OrderId, CustomerName, CustomerEmail, CourseName, Amount, OrderDateUtc
-FROM CourseOrders
-ORDER BY OrderId DESC
-LIMIT 10;";
+            SELECT OrderId, CustomerName, CustomerEmail, CourseName, Amount, OrderDateUtc
+            FROM CourseOrders
+            ORDER BY OrderId DESC
+            LIMIT 10;";
 
         await using var cmd = new MySqlCommand(sql, conn);
         await using var reader = await cmd.ExecuteReaderAsync();

@@ -1,24 +1,24 @@
 apiVersion: 2021-10-01
-location: eastus
+location: southafricanorth
 name: cg-cloudxeus-app-mysql
 properties:
   containers:
     - name: cloudxeus-app
       properties:
-        image: regdeveus100.azurecr.io/cloudxeus-app:v1
+        image: regevsan100.azurecr.io/cloudxeus-app:v1
         resources:
           requests:
             cpu: 1
             memoryInGB: 1.5
         ports:
-            - port: 80
+          - port: 80
         environmentVariables:
           - name: ASPNETCORE_URLS
             value: http://+:80
 
     - name: cloudxeus-mysql
       properties:
-        image: regdeveus100.azurecr.io/cloudxeus-mysql:8.4
+        image: regevsan100.azurecr.io/cloudxeus-mysql:8.4
         resources:
           requests:
             cpu: 1
@@ -31,17 +31,16 @@ properties:
 
   osType: Linux
 
-  
   ipAddress:
     type: Public
     ports:
       - protocol: tcp
         port: 80
-   
+
   imageRegistryCredentials:
-    - server: regdeveus100.azurecr.io
-      username: regdeveus100
-      password: 4qkTAAECBtSTMByi38DRh9OSDeb3rRlwiJ7kr14it53RDnQTQa8EJQQJ99CCACYeBjFEqg7NAAACAZCRKv9e
+    - server: regevsan100.azurecr.io
+      username: regevsan100
+      password: AnSjbUCkWnfFO27Ru7teUB1pfUhhkq5qefzhAazHXgQPzCwqtE99JQQJ99CDACrIdLPEqg7NAAACAZCRkbxz
 
   restartPolicy: Always
 type: Microsoft.ContainerInstance/containerGroups
