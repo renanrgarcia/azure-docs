@@ -1,0 +1,5 @@
+SELECT o.id,o.courseId,o.courseName FROM Orders o
+
+SELECT o.id,o.courseId,o.courseName FROM Orders o WHERE o.customerId="C001"
+
+SELECT o.id,o.courseId,o.courseName FROM Orders o WHERE o.amount>50

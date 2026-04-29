@@ -1,0 +1,42 @@
+{
+  "id": "ord-3001",
+  "customerId": "C004",
+  "customerName": "Sara",
+  "orderDateUtc": "2026-02-11T15:30:00Z",
+  "status": "Paid",
+  "course": {
+    "courseId": "DP-600",
+    "courseName": "DP-600 Fabric Analytics Engineer",
+    "category": "Data"
+  },
+  "payment": {
+    "method": "Card",
+    "provider": "Visa",
+    "transactionId": "tx-9001",
+    "paidAmount": 59.99,
+    "currency": "USD"
+  }
+}
+
+{
+  "id": "ord-3002",
+  "customerId": "C002",
+  "customerName": "James",
+  "orderDateUtc": "2026-02-11T16:05:00Z",
+  "status": "Failed",
+  "course": {
+    "courseId": "AZ-204",
+    "courseName": "AZ-204 Azure Developer",
+    "category": "Azure"
+  },
+  "payment": {
+    "method": "Card",
+    "provider": "Mastercard",
+    "transactionId": "tx-9002",
+    "paidAmount": 49.99,
+    "currency": "USD",
+    "failureReason": "InsufficientFunds"
+  }
+}
+
+

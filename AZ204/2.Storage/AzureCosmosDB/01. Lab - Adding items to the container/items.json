@@ -1,0 +1,35 @@
+{
+  "id": "ord-1001",
+  "customerId": "C001",
+  "customerName": "Mark",
+  "courseId": "AZ-204",
+  "courseName": "AZ-204 Azure Developer",
+  "orderDateUtc": "2026-02-11T10:15:00Z",
+  "amount": 49.99,
+  "currency": "USD",
+  "status": "Paid"
+}
+
+{
+  "id": "ord-1002",
+  "customerId": "C002",
+  "customerName": "James",
+  "courseId": "AZ-104",
+  "courseName": "AZ-104 Azure Administrator",
+  "orderDateUtc": "2026-02-11T11:20:00Z",
+  "amount": 39.99,
+  "currency": "USD",
+  "status": "Pending"
+}
+
+{
+  "id": "ord-1003",
+  "customerId": "C001",
+  "customerName": "Mark",
+  "courseId": "DP-600",
+  "courseName": "DP-600 Fabric Analytics Engineer",
+  "orderDateUtc": "2026-02-11T12:05:00Z",
+  "amount": 59.99,
+  "currency": "USD",
+  "status": "Paid"
+}

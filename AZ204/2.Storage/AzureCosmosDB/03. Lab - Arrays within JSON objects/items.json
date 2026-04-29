@@ -1,0 +1,28 @@
+{
+  "id": "ord-2001",
+  "customerId": "C003",
+  "customerName": "Aisha",
+  "orderDateUtc": "2026-02-11T13:10:00Z",
+  "status": "Paid",
+  "items": [
+    { "courseId": "AZ-204", "courseName": "AZ-204 Azure Developer", "price": 49.99 },
+    { "courseId": "AZ-305", "courseName": "AZ-305 Azure Architect", "price": 69.99 }
+  ],
+  "totalAmount": 119.98,
+  "currency": "USD"
+}
+
+{
+  "id": "ord-2002",
+  "customerId": "C001",
+  "customerName": "Mark",
+  "orderDateUtc": "2026-02-11T14:00:00Z",
+  "status": "Paid",
+  "items": [
+    { "courseId": "AI-900", "courseName": "AI-900 Azure AI Fundamentals", "price": 19.99 },
+    { "courseId": "AZ-900", "courseName": "AZ-900 Azure Fundamentals", "price": 14.99 },
+    { "courseId": "DP-700", "courseName": "DP-700 Data Engineering", "price": 54.99 }
+  ],
+  "totalAmount": 89.97,
+  "currency": "USD"
+}
