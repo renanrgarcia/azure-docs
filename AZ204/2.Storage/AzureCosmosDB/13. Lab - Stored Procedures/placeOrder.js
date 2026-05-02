@@ -1,7 +1,7 @@
 function placeOrder(order, audit) {
-    var context = getContext();
-    var collection = context.getCollection();
-    var response = context.getResponse();
+    var context = getContext(); // Get the context of the stored procedure
+    var collection = context.getCollection(); // Get the collection reference
+    var response = context.getResponse(); // Get the response object to set the response body
 
     collection.createDocument(collection.getSelfLink(), order,
         function (err, createdOrder) {
