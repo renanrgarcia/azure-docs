@@ -1,0 +1,25 @@
+@tenantId = 
+@clientId = 
+@clientSecret = _
+
+### Get app-only access token for Microsoft Graph
+POST https://login.microsoftonline.com/{{tenantId}}/oauth2/v2.0/token
+Content-Type: application/x-www-form-urlencoded
+
+client_id={{clientId}}&
+client_secret={{clientSecret}}&
+scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&
+grant_type=client_credentials
+
+### Get all users in the tenant
+GET https://graph.microsoft.com/v1.0/users
+Authorization: Bearer
+
+### Update the user's mail property
+PATCH https://graph.microsoft.com/v1.0/users/a7ac3b09-f777-4768-afe7-de49c218662b
+Authorization: Bearer {{access_token}}
+Content-Type: application/json
+
+{
+  "mail": "appdev01@cloudlearning4000gmail.onmicrosoft.com"
+}

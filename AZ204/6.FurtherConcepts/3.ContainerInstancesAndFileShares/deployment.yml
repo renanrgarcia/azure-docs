@@ -1,0 +1,30 @@
+apiVersion: '2019-12-01'
+location: northeurope
+name: fileappshare
+properties:
+  containers:
+  - name: fileapp
+    properties:
+      environmentVariables: []
+      image: appregistry45545.azurecr.io/fileapp:latest
+      resources:
+        requests:
+          cpu: 1.0
+          memoryInGB: 1.5
+      volumeMounts:
+      - mountPath: /mnt/destination/
+        name: filevolume
+  osType: Linux
+  restartPolicy: Always
+  imageRegistryCredentials:
+  - server: appregistry45545.azurecr.io
+    username: appregistry45545
+    password: gwICLqL0phANPEK5ewJ++fC90XPSYgD1iZhLA7yh9Q+ACRC/mQQ6
+  volumes:
+  - name: filevolume
+    azureFile:
+      sharename: appshare
+      storageAccountName: appstore554554554
+      storageAccountKey: 6J+QNT9ke7BOwA5bedWQcbHrlNhrLcYEVD5UsTgKYu/ujRRCWsEInDgJX0V8p82MOAmD0fm6xA3F+AStvdGLyw==
+tags: {}
+type: Microsoft.ContainerInstance/containerGroups

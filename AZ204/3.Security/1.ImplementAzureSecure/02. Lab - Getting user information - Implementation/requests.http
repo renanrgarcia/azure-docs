@@ -1,0 +1,16 @@
+@tenantId = 
+@clientId = 
+@clientSecret = 
+
+### Get app-only access token for Microsoft Graph
+POST https://login.microsoftonline.com/{{tenantId}}/oauth2/v2.0/token
+Content-Type: application/x-www-form-urlencoded
+
+client_id={{clientId}}&
+client_secret={{clientSecret}}&
+scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&
+grant_type=client_credentials
+
+### Get all users in the tenant
+GET https://graph.microsoft.com/v1.0/users
+Authorization: Bearer {{access_token}}
