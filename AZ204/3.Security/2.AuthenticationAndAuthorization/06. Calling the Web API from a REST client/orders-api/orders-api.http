@@ -1,0 +1,31 @@
+@tenant_id = 4f067c2d-2766-4c5f-a81a-ec27f14f8492
+@client_id = bc10be04-a7f3-4568-bb49-da5f2f115c0f
+@client_secret = ax68Q~Hz-kzMD6i8pVgKjHYndUGqO0v3k8m.~c2D
+@orders_api_app_id = deed110c-312a-49a4-9218-6f4c41b609dd
+@orders_api_HostAddress = https://orders-api-dev-eus-10.azurewebsites.net
+
+
+### Get app-only access token
+POST https://login.microsoftonline.com/{{tenant_id}}/oauth2/v2.0/token
+Content-Type: application/x-www-form-urlencoded
+
+client_id={{client_id}}&client_secret={{client_secret}}&scope=api://{{orders_api_app_id}}/.default&grant_type=client_credentials
+
+### Get all orders
+GET {{orders_api_HostAddress}}/api/orders
+Accept: application/json
+
+### Get order by id
+GET {{orders_api_HostAddress}}/api/orders/1002
+Accept: application/json
+
+### Create a new order
+POST {{orders_api_HostAddress}}/api/orders
+Content-Type: application/json
+Accept: application/json
+
+{
+  "orderId": 2001,
+  "customerName": "Customer 004",
+  "amount": 79.00
+}
