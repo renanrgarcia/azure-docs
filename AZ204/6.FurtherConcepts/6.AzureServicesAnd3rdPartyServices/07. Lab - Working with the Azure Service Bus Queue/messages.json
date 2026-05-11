@@ -1,0 +1,5 @@
+{"orderId":12547,"customerName":"Customer 001","customerEmail":"customer001@cloudxeus.com","courseName":"AZ-204: Azure Developer Associate","amount":49.00,"orderDateUtc":"2026-02-26T09:15:00Z"}
+
+{"orderId":12548,"customerName":"Customer 002","customerEmail":"customer002@cloudxeus.com","courseName":"AZ-104: Azure Administrator","amount":39.00,"orderDateUtc":"2026-02-26T09:16:00Z"}
+
+{"orderId":12549,"customerName":"Customer 003","customerEmail":"customer003@cloudxeus.com","courseName":"DP-600: Fabric Analytics Engineer","amount":59.00,"orderDateUtc":"2026-02-26T09:17:00Z"}
