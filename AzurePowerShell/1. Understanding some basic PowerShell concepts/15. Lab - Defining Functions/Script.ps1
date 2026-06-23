@@ -8,43 +8,40 @@ function Get-Appversion {
 Get-Appversion
 
 # The function is being defined with two parameters
-function Add-Integers([int]$x, [int]$y)
-{
-    'The sum of the Integers is ' +($x+$y)
+function Add-Integers([int]$x, [int]$y) {
+    'The sum of the Integers is ' + ($x + $y)
 }
 
 # We are calling the function and passing in the required values
 Add-Integers 10 20
 
 # We can also define an object as a parameter to the function
-function Get-Course
-{
+function Get-Course {
     param(
         [Object[]] $CourseList
     )
 
-    foreach($Course in $CourseList)
-{
-    $Course.Id
-    $Course.Name
-    $Course.Rating
-}
+    foreach ($Course in $CourseList) {
+        $Course.Id
+        $Course.Name
+        $Course.Rating
+    }
 }
 
-$CourseList=@(
+$CourseList = @(
     [PSCustomObject]@{
-        Id = 1
-        Name ='AZ-104 Azure Administrator'
+        Id     = 1
+        Name   = 'AZ-104 Azure Administrator'
         Rating = 4.7
     },
     [PSCustomObject]@{
-        Id = 2
-        Name ='AZ-305 Azure Architect Design'
+        Id     = 2
+        Name   = 'AZ-305 Azure Architect Design'
         Rating = 4.8
     },
     [PSCustomObject]@{
-        Id = 3
-        Name ='AZ-500 Azure Security'
+        Id     = 3
+        Name   = 'AZ-500 Azure Security'
         Rating = 4.9
     }
 )
