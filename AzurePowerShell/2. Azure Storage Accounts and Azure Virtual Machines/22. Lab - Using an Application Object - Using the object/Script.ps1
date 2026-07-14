@@ -8,26 +8,26 @@ https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security
 # Here we are defining the application object properties
 # Remember to change the AppId, AppSecret and TenantID values accordingly.
 
-$AppId=""
-$AppSecret=""
+$AppId = ""
+$AppSecret = ""
 
-# We need to convert the password to a secute string
+# We need to convert the password to a secure string
 
 $SecureSecret = $AppSecret | ConvertTo-SecureString -AsPlainText -Force
 
 # We then create a new object to encapsulate the Application ID and secret
 
 $Credential = New-Object -TypeName System.Management.Automation.PSCredential `
--ArgumentList $AppId,$SecureSecret
+  -ArgumentList $AppId, $SecureSecret
 
-$TenantID=""
+$TenantID = ""
 
-# We can then connnect to our Azure account via the use of the Service Principal
+# We can then connect to our Azure account via the use of the Service Principal
 
 Connect-AzAccount -ServicePrincipal -Credential $Credential -Tenant $TenantID 
 
 # Now go ahead and create the resource group
 
-$ResourceGroupName ="powershell-grp"
+$ResourceGroupName = "powershell-grp"
 $Location = "North Europe"
 New-AzResourceGroup -Name $ResourceGroupName -Location $Location
