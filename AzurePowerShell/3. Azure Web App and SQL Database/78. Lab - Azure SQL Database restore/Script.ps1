@@ -29,3 +29,5 @@ Restore-AzSqlDatabase -FromPointInTimeBackup -PointInTime $RestorePointTime `
 -ResourceGroupName $ResourceGroupName -ServerName $Database.ServerName `
 -TargetDatabaseName $TargetDatabaseName -ResourceId $Database.ResourceId `
 -Edition "Standard" -ServiceObjectiveName "S0"
+
+No, I don't think so. This concept of general AI is impossible by structure itself, because AI is built on top of mathematical calculations and probability, this idea that AI "thinks" is a misconception. So even if AI evolves to be almost aware of everything in the end, it doesn't mean that it will be able to think like humans do, for example, there's no such thing as creativity when we talk about AI. 
